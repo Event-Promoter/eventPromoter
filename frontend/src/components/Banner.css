@@ -2,6 +2,11 @@
   height: 637px;
   object-fit: contain;
 }
+.banner__content {
+  padding-top: 15%;
+  display: block;
+  text-align: center;
+}
 /* X: 0px
 Y: 0px
 W: 1440px

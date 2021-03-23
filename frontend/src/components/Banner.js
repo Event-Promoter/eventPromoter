@@ -1,4 +1,7 @@
 import React from 'react'
+import { FormControl, Input, InputLabel } from '@material-ui/core'
+import SearchIcon from '@material-ui/icons/Search';
+import { IconButton } from '@material-ui/core';
 import './Banner.css'
 function Banner() {
     return (
@@ -9,7 +12,18 @@ function Banner() {
             backgroundPosition: " center",
         }}
         >
-            
+            <div className='banner__content'>
+                <FormControl style={{
+                    marginLeft:'auto',
+                    marginRight:'auto',
+                    textAlign:'left',
+                    backgroundColor:'rgba(0,0,0,0.8)',
+                    borderRadius:'15px',
+                }}>
+                    <InputLabel style={{color:'white' ,fontSize:'1.2rem',marginBottom:'2%',marginLeft:'2%',marginRight:'2%'}}><IconButton><SearchIcon style={{color:'white'}}/></IconButton>Search Here</InputLabel>
+                    <Input style={{color:'white', margin:'15%'}}/>
+                </FormControl>
+            </div>
         </header>
     )
 }
