@@ -17,7 +17,7 @@ function Banner() {
                     marginLeft:'auto',
                     marginRight:'auto',
                     textAlign:'left',
-                    backgroundColor:'rgba(0,0,0,0.8)',
+                    backgroundColor:'rgba(1,1,1,0.2)',
                     borderRadius:'15px',
                 }}>
                     <InputLabel style={{color:'white' ,fontSize:'1.2rem',marginBottom:'2%',marginLeft:'2%',marginRight:'2%'}}><IconButton><SearchIcon style={{color:'white'}}/></IconButton>Search Here</InputLabel>
