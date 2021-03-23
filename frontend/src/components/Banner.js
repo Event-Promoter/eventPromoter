@@ -9,7 +9,7 @@ function Banner() {
             backgroundPosition: " center",
         }}
         >
-
+            
         </header>
     )
 }

@@ -25,7 +25,7 @@ function Navbar() {
     return (
         <div className={`navbar ${show &&"navbar__black"}`}>
             <div className="navbar__logo">
-                <h4>Event Promoter</h4>
+                <h2>Event Promoter</h2>
             </div>
             <div className='navbar__right'>
                 <p>Home</p>
