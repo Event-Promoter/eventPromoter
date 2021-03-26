@@ -7,8 +7,6 @@ import IconButton from '@material-ui/core/IconButton';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
 import image from './image2.gif'
 import image1 from './image1.gif'
-
-import { Link } from 'react-router-dom';
 import './random.css'
 
 const useStyles = makeStyles((theme) => ({
@@ -18,6 +16,8 @@ const useStyles = makeStyles((theme) => ({
         justifyContent: 'space-around',
         overflow: 'hidden',
         backgroundColor: theme.palette.background.paper,
+        top:'0%',
+        paddingBottom:'5%'
     },
     gridList: {
         width: 900,
@@ -67,7 +67,7 @@ export default function Random() {
     return (
         <div className='section2'>
         <div className={classes.root}>
-            <GridList cellHeight={200} spacing={1} className={classes.gridList}>
+            <GridList cellHeight={200} spacing={8} className={classes.gridList}>
                 {tileData.map((tile) => (
                     <GridListTile key={tile.img} cols={tile.featured ? 2 : 1} rows={tile.featured ? 1.3 : 1}>
                         <img className="image" src={tile.img} alt={tile.title} />

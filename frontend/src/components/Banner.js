@@ -19,9 +19,10 @@ function Banner() {
                     textAlign:'left',
                     backgroundColor:'rgba(1,1,1,0.2)',
                     borderRadius:'15px',
+                    width: '45%', 
                 }}>
-                    <InputLabel style={{color:'white' ,fontSize:'1.2rem',marginBottom:'2%',marginLeft:'2%',marginRight:'2%'}}><IconButton><SearchIcon style={{color:'white'}}/></IconButton>Search Here</InputLabel>
-                    <Input style={{color:'white', margin:'15%'}}/>
+                    <InputLabel style={{color:'white' ,fontSize:'1.2rem',textAlign:'center'}}><IconButton><SearchIcon style={{color:'white'}}/></IconButton>Search Here</InputLabel>
+                    <Input style={{color:'white', margin:'5%',textAlign:'center'}}/>
                 </FormControl>
             </div>
         </header>
