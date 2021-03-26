@@ -1,5 +1,5 @@
 import React, {useState,useEffect} from 'react'
-
+import logo from './logo.png';
 import './Navbar.css'
 // import SearchIcon from '@material-ui/icons/Search';
 // import { IconButton } from '@material-ui/core';
@@ -26,7 +26,7 @@ function Navbar() {
         <div className={`navbar ${show &&"navbar__black"}`}>
             <div className="navbar__logo">
                 
-                <h2>Event Promoter</h2>
+                <img src={logo} alt='logo' width='100px' height='50px'/>
             </div>
             <div className='navbar__right'>
                 <p>Home</p>
