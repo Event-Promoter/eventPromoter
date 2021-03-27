@@ -7,11 +7,10 @@
   -webkit-overflow-scrolling: touch;
   font-weight: 500;
 }
-/* 
+
 .MuiGridListTile-tile {
-    position: relative;
-    width: 50%;
-  } */
+  border-radius: 20px;
+}
 
 .image {
   display: block;
@@ -49,5 +48,5 @@
 }
 
 .section2 {
-  margin-top: 10%;
+  margin-top: 20px;
 }
