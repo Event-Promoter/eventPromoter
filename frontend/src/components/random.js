@@ -5,8 +5,10 @@ import GridListTile from "@material-ui/core/GridListTile";
 import GridListTileBar from "@material-ui/core/GridListTileBar";
 import IconButton from "@material-ui/core/IconButton";
 import StarBorderIcon from "@material-ui/icons/StarBorder";
-import image from "./image2.gif";
+import think from "./think.jpg";
+import image2 from "./pitch.jpg";
 import image1 from "./image1.gif";
+import business from "./business.jpg";
 import "./random.css";
 
 const useStyles = makeStyles((theme) => ({
@@ -37,14 +39,14 @@ const useStyles = makeStyles((theme) => ({
 
 const tileData = [
   {
-    img: image,
+    img: think,
     title: "Non-Tech",
     author: "author",
     featured: true,
   },
   {
-    img: image1,
-    title: "Beta-Pitches",
+    img: business,
+    title: "Business Events",
     author: "author",
   },
   {
@@ -53,8 +55,8 @@ const tileData = [
     author: "author",
   },
   {
-    img: image,
-    title: "Business Events",
+    img: image2,
+    title: "Beta-Pitches",
     author: "author",
     featured: true,
   },
