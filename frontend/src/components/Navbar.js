@@ -31,13 +31,7 @@ function Navbar() {
       <div className="navbar__right">
         <p>Home</p>
         <p>About Us</p>
-        <Button
-          style={{ textTransform: "none" }}
-          variant="contained"
-          color="primary"
-        >
-          Sign In/Up
-        </Button>
+        <a href='/'>Sign In/up</a>
       </div>
       <div className="menu">
         <div className="mobile-menu" onClick={handleClick}>

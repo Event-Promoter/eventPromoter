@@ -1,16 +1,25 @@
 import "./App.css";
-import Banner from "./components/Banner";
 import Navbar from "./components/Navbar";
-import Random from "./components/random";
 import Footer from "./components/Footer";
-import ImgMediaCard from "./components/Card";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  // Link
+} from "react-router-dom";
+import HomeScreen from "./screens/HomeScreen";
 function App() {
   return (
     <div className="app">
       <Navbar />
-      <Banner />
-      <Random />
-      <ImgMediaCard />
+      <Router>
+        <Switch>
+          <Route exact path='/'>
+            <HomeScreen/>
+          </Route>
+          
+        </Switch>
+      </Router>
       <Footer />
     </div>
   );
