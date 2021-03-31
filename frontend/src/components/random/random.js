@@ -5,7 +5,7 @@ import GridListTile from "@material-ui/core/GridListTile";
 import GridListTileBar from "@material-ui/core/GridListTileBar";
 import IconButton from "@material-ui/core/IconButton";
 import StarBorderIcon from "@material-ui/icons/StarBorder";
-import think from "./think.jpg";
+import think from "./think2.jpg";
 import image2 from "./pitch.jpg";
 import image1 from "./image1.gif";
 import business from "./business.jpg";
@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "space-around",
     overflow: "hidden",
     top: "0%",
-    paddingTop:'2%',
+    paddingTop: "2%",
     paddingBottom: "2%",
   },
   gridList: {

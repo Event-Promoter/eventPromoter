@@ -10,7 +10,7 @@ import { useHistory } from "react-router-dom";
 import CardHeader from "@material-ui/core/CardHeader";
 import { red } from "@material-ui/core/colors";
 import Avatar from "@material-ui/core/Avatar";
-import img from "../components/bram-naus-n8Qb1ZAkK88-unsplash.jpg";
+import img from "./bram-naus-n8Qb1ZAkK88-unsplash.jpg";
 import Button from "@material-ui/core/Button";
 const useStyles = makeStyles({
   root: {
