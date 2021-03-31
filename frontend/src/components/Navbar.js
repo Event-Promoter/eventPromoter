@@ -31,7 +31,7 @@ function Navbar() {
       <div className="navbar__right">
         <p>Home</p>
         <p>About Us</p>
-        <a href='/'>Sign In/up</a>
+        <a href="/">Sign In/up</a>
       </div>
       <div className="menu">
         <div className="mobile-menu" onClick={handleClick}>

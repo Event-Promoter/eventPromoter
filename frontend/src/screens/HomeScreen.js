@@ -1,17 +1,17 @@
-import React from 'react'
-import Banner from '../components/Banner'
-import Random from '../components/random'
-import Events from '../components/Events'
-import './HomeScreen.css'
+import React from "react";
+import Banner from "../components/Banner";
+import Random from "../components/random";
+import EventCard from "../components/EventCard";
+import "./HomeScreen.css";
 // import ImgMediaCard from '../components/Card'
 function HomeScreen() {
-    return (
-        <div className='homeScreen'>
-            <Banner/>
-            <Random/>
-            <Events/> 
-        </div>
-    )
+  return (
+    <div className="homeScreen">
+      <Banner />
+      <Random />
+      <EventCard />
+    </div>
+  );
 }
 
-export default HomeScreen
+export default HomeScreen;
