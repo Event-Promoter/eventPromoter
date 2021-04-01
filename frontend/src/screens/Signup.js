@@ -41,6 +41,11 @@ const useStyles = makeStyles((theme) => ({
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
+    color: "#FFFFFF",
+    backgroundColor: "#3B3251",
+  },
+  header: {
+    fontFamily: "Montserrat",
   },
 }));
 
@@ -51,6 +56,10 @@ export default function SignUp() {
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
+        <Typography variant="h4" gutterBottom className={classes.header}>
+          Event Promoter
+        </Typography>
+
         <Avatar className={classes.avatar}>
           <LockOutlinedIcon />
         </Avatar>
@@ -110,7 +119,7 @@ export default function SignUp() {
             type="submit"
             fullWidth
             variant="contained"
-            color="primary"
+            color=""
             className={classes.submit}
           >
             Sign Up

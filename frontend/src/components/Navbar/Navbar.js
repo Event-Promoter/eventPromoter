@@ -6,6 +6,7 @@ import "./Navbar.css";
 import Close from "@material-ui/icons/Close";
 import MenuIcon from "@material-ui/icons/Menu";
 import { Button } from "@material-ui/core";
+import { Link } from "react-router-dom";
 
 function Navbar() {
   const [show, handleShow] = useState(false);
@@ -42,14 +43,15 @@ function Navbar() {
           )}
         </div>
         <div className={` ${!click && "menu__option"}`}>
-          <p>Home</p>
+          <a href="/">
+            <p>Home</p>
+          </a>
           <p>About Us</p>
           <Button
             style={{ textTransform: "none", marginLeft: "5px" }}
             variant="contained"
-            color="primary"
           >
-            Sign In/Up
+            Sign In/up
           </Button>
         </div>
       </div>

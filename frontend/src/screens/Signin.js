@@ -45,6 +45,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
+    fontFamily: "Montserrat",
   },
   avatar: {
     margin: theme.spacing(1),
@@ -56,6 +57,11 @@ const useStyles = makeStyles((theme) => ({
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
+    color: "#FFFFFF",
+    backgroundColor: "#3B3251",
+  },
+  header: {
+    fontFamily: "Montserrat",
   },
 }));
 
@@ -68,6 +74,9 @@ export default function SignIn() {
       <Grid item xs={false} sm={4} md={7} className={classes.image} />
       <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
         <div className={classes.paper}>
+          <Typography variant="h4" gutterBottom className={classes.header}>
+            Event Promoter
+          </Typography>
           <Avatar className={classes.avatar}>
             <LockOutlinedIcon />
           </Avatar>
@@ -105,7 +114,6 @@ export default function SignIn() {
               type="submit"
               fullWidth
               variant="contained"
-              color="primary"
               className={classes.submit}
             >
               Sign In
