@@ -12,6 +12,7 @@ import HomeScreen from "./screens/HomeScreen";
 import EventScreen from "./screens/EventScreen";
 import SignIn from "./screens/Signin";
 import SignUp from "./screens/Signup";
+import SignUpOrg from "./screens/SignUpOrg";
 function App() {
   return (
     <div className="app">
@@ -29,6 +30,7 @@ function App() {
           </Route>
           <Route exact path="/SignIn" component={SignIn} />
           <Route exact path="/SignUp" component={SignUp} />
+          <Route exact path="/SignUpOrg" component={SignUpOrg} />
 
           <Route path="/:title" component={(Navbar, EventScreen, Footer)} />
         </Switch>

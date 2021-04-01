@@ -3,7 +3,6 @@ import React from "react";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import TextField from "@material-ui/core/TextField";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
 
 import Link from "@material-ui/core/Link";
 import Paper from "@material-ui/core/Paper";
@@ -12,9 +11,7 @@ import Grid from "@material-ui/core/Grid";
 
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
-import GoogleButton from "react-google-button";
-import Radio from "@material-ui/core/Radio";
-import RadioGroup from "@material-ui/core/RadioGroup";
+import orgbg from "./orgbg.jpg";
 
 function Copyright() {
   return (
@@ -34,13 +31,13 @@ const useStyles = makeStyles((theme) => ({
     height: "100vh",
   },
   image: {
-    backgroundImage: "url(https://source.unsplash.com/random)",
+    backgroundImage: `url(${orgbg})`,
     backgroundRepeat: "no-repeat",
     backgroundColor:
       theme.palette.type === "light"
         ? theme.palette.grey[50]
         : theme.palette.grey[900],
-    backgroundSize: "cover",
+    backgroundSize: "contain",
     backgroundPosition: "center",
   },
   paper: {
@@ -55,7 +52,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.secondary.main,
   },
   form: {
-    width: "100%", // Fix IE 11 issue.
+    width: "100%",
     marginTop: theme.spacing(1),
   },
   submit: {
@@ -71,6 +68,7 @@ const useStyles = makeStyles((theme) => ({
 
   header: {
     fontFamily: "Montserrat",
+    marginTop: "-5%",
   },
   gBtn: {
     display: "flex",
@@ -80,101 +78,116 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SignIn() {
+export default function SignUpOrg() {
   const classes = useStyles();
-  const [value, setValue] = React.useState("User");
-  const handleChange = (event) => {
-    setValue(event.target.value);
-  };
 
   return (
     <Grid container component="main" className={classes.root}>
       <CssBaseline />
-      <Grid item xs={false} sm={4} md={7} className={classes.image} />
+      <Grid item xs={false} sm={4} md={6} className={classes.image} />
       <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
         <div className={classes.paper}>
           <Typography variant="h4" gutterBottom className={classes.header}>
             Event Promoter
           </Typography>
 
-          <div className={classes.gBtn}>
-            <GoogleButton
-              onClick={() => {
-                console.log("Google button clicked");
-              }}
-            />
-          </div>
-          <Typography component="subtitle" variant="subtitile">
-            or
-          </Typography>
-          <Typography component="h1" variant="h5">
-            Sign in
+          <Typography
+            component="h1"
+            variant="h5"
+            style={{ marginBottom: "4%" }}
+          >
+            Sign Up for Organizations
           </Typography>
 
           <form className={classes.form} noValidate>
-            <TextField
-              variant="outlined"
-              margin="normal"
-              required
-              fullWidth
-              id="email"
-              label="Email Address"
-              name="email"
-              autoComplete="email"
-              autoFocus
-            />
-            <TextField
-              variant="outlined"
-              margin="normal"
-              required
-              fullWidth
-              name="password"
-              label="Password"
-              type="password"
-              id="password"
-              autoComplete="current-password"
-            />
+            <Grid container spacing={2}>
+              <Grid item xs={12}>
+                <TextField
+                  autoComplete="oname"
+                  name="orgName"
+                  variant="outlined"
+                  required
+                  fullWidth
+                  id="orgName"
+                  label="Organization Name"
+                  autoFocus
+                />
+              </Grid>
 
-            <RadioGroup
-              aria-label="gender"
-              name="gender1"
-              value={value}
-              onChange={handleChange}
-            >
-              <FormControlLabel value="User" control={<Radio />} label="User" />
-              <FormControlLabel
-                value="Organization"
-                control={<Radio />}
-                label="Organization"
-              />
-            </RadioGroup>
+              <Grid item xs={12}>
+                <TextField
+                  autoComplete="clgname"
+                  name="clgName"
+                  variant="outlined"
+                  required
+                  fullWidth
+                  id="clgName"
+                  label="College Name"
+                  autoFocus
+                />
+              </Grid>
 
+              <Grid item xs={12}>
+                <TextField
+                  variant="outlined"
+                  required
+                  fullWidth
+                  id="email"
+                  label="Email Address"
+                  name="email"
+                  autoComplete="email"
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  variant="outlined"
+                  required
+                  fullWidth
+                  name="password"
+                  label="Password"
+                  type="password"
+                  id="password"
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  variant="outlined"
+                  required
+                  fullWidth
+                  name="Confirm password"
+                  label="Confirm Password"
+                  type="password"
+                  id="password2"
+                />
+              </Grid>
+            </Grid>
             <Button
               type="submit"
               fullWidth
               variant="contained"
+              color=""
               className={classes.submit}
             >
-              Sign In
+              Sign Up
             </Button>
+
             <Grid container>
               <Grid item xs>
-                <Link href="#" variant="body2">
-                  Forgot password?
+                <Link href="/SignUp" variant="body2">
+                  {"Sign Up as a user"}
                 </Link>
               </Grid>
               <Grid item>
-                <Link href="/SignUp" variant="body2">
-                  {"Don't have an account? Sign Up"}
+                <Link href="/SignIn" variant="body2">
+                  Already have an account? Sign in
                 </Link>
               </Grid>
             </Grid>
-
-            <Box mt={5}>
-              <Copyright />
-            </Box>
           </form>
         </div>
+        <Box mt={5}>
+          <Copyright />
+        </Box>
       </Grid>
     </Grid>
   );
