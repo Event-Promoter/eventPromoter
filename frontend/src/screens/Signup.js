@@ -10,6 +10,7 @@ import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
+import GoogleButton from "react-google-button";
 
 function Copyright() {
   return (
@@ -41,11 +42,23 @@ const useStyles = makeStyles((theme) => ({
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
-    color: "#FFFFFF",
-    backgroundColor: "#3B3251",
+    color: "#fff0a4",
+    backgroundColor: "#020438",
+
+    "&:hover": {
+      backgroundColor: "#fff0a4",
+      color: "#020438",
+    },
   },
   header: {
     fontFamily: "Montserrat",
+    marginTop: "-8%",
+  },
+  gBtn: {
+    display: "flex",
+    justifyContent: "center",
+    marginTop: "1rem",
+    marginBottom: "1rem",
   },
 }));
 
@@ -59,10 +72,17 @@ export default function SignUp() {
         <Typography variant="h4" gutterBottom className={classes.header}>
           Event Promoter
         </Typography>
-
-        <Avatar className={classes.avatar}>
-          <LockOutlinedIcon />
-        </Avatar>
+        <div className={classes.gBtn}>
+          <GoogleButton
+            label="Continue with Google"
+            onClick={() => {
+              console.log("Google button clicked");
+            }}
+          />
+        </div>
+        <Typography component="subtitle" variant="subtitile">
+          or
+        </Typography>
         <Typography component="h1" variant="h5">
           Sign up
         </Typography>
@@ -111,7 +131,17 @@ export default function SignUp() {
                 label="Password"
                 type="password"
                 id="password"
-                autoComplete="current-password"
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                variant="outlined"
+                required
+                fullWidth
+                name="Confirm password"
+                label="Confirm Password"
+                type="password"
+                id="password2"
               />
             </Grid>
           </Grid>

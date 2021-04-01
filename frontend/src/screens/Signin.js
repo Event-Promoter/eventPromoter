@@ -12,6 +12,7 @@ import Grid from "@material-ui/core/Grid";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
+import GoogleButton from "react-google-button";
 
 function Copyright() {
   return (
@@ -57,11 +58,23 @@ const useStyles = makeStyles((theme) => ({
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
-    color: "#FFFFFF",
-    backgroundColor: "#3B3251",
+    color: "#fff0a4",
+    backgroundColor: "#020438",
+
+    "&:hover": {
+      backgroundColor: "#fff0a4",
+      color: "#020438",
+    },
   },
+
   header: {
     fontFamily: "Montserrat",
+  },
+  gBtn: {
+    display: "flex",
+    justifyContent: "center",
+    marginTop: "1rem",
+    marginBottom: "1rem",
   },
 }));
 
@@ -80,9 +93,21 @@ export default function SignIn() {
           <Avatar className={classes.avatar}>
             <LockOutlinedIcon />
           </Avatar>
+
+          <div className={classes.gBtn}>
+            <GoogleButton
+              onClick={() => {
+                console.log("Google button clicked");
+              }}
+            />
+          </div>
+          <Typography component="subtitle" variant="subtitile">
+            or
+          </Typography>
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
+
           <form className={classes.form} noValidate>
             <TextField
               variant="outlined"
@@ -130,6 +155,7 @@ export default function SignIn() {
                 </Link>
               </Grid>
             </Grid>
+
             <Box mt={5}>
               <Copyright />
             </Box>
