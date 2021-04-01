@@ -1,0 +1,41 @@
+.banner {
+  height: 550px;
+  object-fit: contain;
+}
+.banner__content {
+  padding-top: 15%;
+
+  display: block;
+  text-align: center;
+}
+
+.banner__form {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+  background-color: rgba(1, 1, 1, 0.5);
+  padding: 1%;
+  border-radius: 10px;
+  width: 25%;
+}
+@media (max-width: 880px) {
+  .banner__content {
+    padding-top: 35%;
+  }
+  .banner__form {
+    font-size: 0.5rem;
+    width: 35%;
+  }
+}
+@media (max-width: 660px) {
+  .banner__content {
+    padding-top: 55%;
+  }
+}
+/* X: 0px
+Y: 0px
+W: 1440px
+H: 637px
+X constraint: Left
+Y constraint: Top */
