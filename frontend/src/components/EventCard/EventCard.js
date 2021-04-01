@@ -12,6 +12,9 @@ import { red } from "@material-ui/core/colors";
 import Avatar from "@material-ui/core/Avatar";
 import img from "./bram-naus-n8Qb1ZAkK88-unsplash.jpg";
 import Button from "@material-ui/core/Button";
+import ShareIcon from "@material-ui/icons/Share";
+import IconButton from "@material-ui/core/IconButton";
+
 const useStyles = makeStyles({
   root: {
     cursor: "pointer",
@@ -19,8 +22,10 @@ const useStyles = makeStyles({
     marginBottom: "2%",
     marginLeft: "3%",
     width: 365,
-    borderRadius: "5%",
+    borderRadius: "2%",
     minWidth: 200,
+    boxShadow:
+      "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
   },
   media: {
     height: 50,
@@ -40,6 +45,7 @@ const useStyles = makeStyles({
     backgroundColor: "#eeeeee",
     paddingTop: "10px",
   },
+  share: {},
 });
 const styles = {
   overlay: {
@@ -81,6 +87,9 @@ function EventCard() {
           >
             PICT ACM
           </a>
+          <IconButton aria-label="share" className={useStyles().share}>
+            <ShareIcon />
+          </IconButton>
         </div>
         <CardContent>
           <Typography

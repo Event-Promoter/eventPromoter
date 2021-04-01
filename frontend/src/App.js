@@ -1,6 +1,7 @@
 import "./App.css";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
+import SpacingGrid from "./components/CardGrid/cardGrid";
 import {
   BrowserRouter as Router,
   Switch,
@@ -11,11 +12,12 @@ import HomeScreen from "./screens/HomeScreen";
 function App() {
   return (
     <div className="app">
-      <Navbar />
+      {/* <Navbar /> */}
       <Router>
         <Switch>
           <Route exact path="/">
-            <HomeScreen />
+            {/* <HomeScreen /> */}
+            <SpacingGrid />
           </Route>
         </Switch>
       </Router>
