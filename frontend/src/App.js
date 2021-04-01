@@ -10,23 +10,29 @@ import {
 } from "react-router-dom";
 import HomeScreen from "./screens/HomeScreen";
 import EventScreen from "./screens/EventScreen";
+import SignIn from "./screens/Signin";
+import SignUp from "./screens/Signup";
 function App() {
   return (
     <div className="app">
-      <Navbar />
       <Router>
         <Switch>
           <Route exact path="/">
+            <Navbar />
             <HomeScreen />
+            <Footer />
           </Route>
-          <Route path='/all'>
-            <SpacingGrid/>
+          <Route path="/all">
+            <Navbar />
+            <SpacingGrid />
+            <Footer />
           </Route>
-          <Route path='/:title' component={EventScreen}/>
+          <Route exact path="/SignIn" component={SignIn} />
+          <Route exact path="/SignUp" component={SignUp} />
+
+          <Route path="/:title" component={(Navbar, EventScreen, Footer)} />
         </Switch>
       </Router>
-      
-      <Footer />
     </div>
   );
 }
