@@ -9,18 +9,23 @@ import {
   // Link
 } from "react-router-dom";
 import HomeScreen from "./screens/HomeScreen";
+import EventScreen from "./screens/EventScreen";
 function App() {
   return (
     <div className="app">
-      {/* <Navbar /> */}
+      <Navbar />
       <Router>
         <Switch>
           <Route exact path="/">
-            {/* <HomeScreen /> */}
-            <SpacingGrid />
+            <HomeScreen />
           </Route>
+          <Route path='/all'>
+            <SpacingGrid/>
+          </Route>
+          <Route path='/:title' component={EventScreen}/>
         </Switch>
       </Router>
+      
       <Footer />
     </div>
   );
