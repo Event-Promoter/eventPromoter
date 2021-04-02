@@ -19,6 +19,10 @@ function App() {
     <div className="app">
       <Router>
         <Switch>
+          <Route exact path="/SignIn" component={SignIn} />
+          <Route exact path="/SignUp" component={SignUp} />
+          <Route exact path="/SignUpOrg" component={SignUpOrg} />
+
           <Route exact path="/">
             <Navbar />
             <HomeScreen />
@@ -29,12 +33,13 @@ function App() {
             <SpacingGrid />
             <Footer />
           </Route>
-          <Route exact path="/SignIn" component={SignIn} />
-          <Route exact path="/SignUp" component={SignUp} />
-          <Route exact path="/SignUpOrg" component={SignUpOrg} />
 
+          <Route exact path="/main-event">
+            <Navbar />
+            <MainEvent />
+            <Footer />
+          </Route>
           <Route path="/:title" component={(Navbar, EventScreen, Footer)} />
-          <Route path="/main-event" component={(Navbar, MainEvent, Footer)} />
         </Switch>
       </Router>
     </div>
