@@ -10,6 +10,7 @@ import {
 } from "react-router-dom";
 import HomeScreen from "./screens/HomeScreen";
 import EventScreen from "./screens/EventScreen";
+import MainEvent from "./components/main-event/MainEvent";
 function App() {
   return (
     <div className="app">
@@ -22,7 +23,8 @@ function App() {
           <Route path='/all'>
             <SpacingGrid/>
           </Route>
-          <Route path='/:title' component={EventScreen}/>
+          <Route path='/event' component={EventScreen}/>
+          <Route path='/main-event' component={MainEvent}/>
         </Switch>
       </Router>
       

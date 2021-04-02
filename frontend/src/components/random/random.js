@@ -10,7 +10,7 @@ import image2 from "./pitch.jpg";
 import image1 from "./image1.gif";
 import business from "./business.jpg";
 import "./random.css";
-import { useHistory } from "react-router-dom";
+import { useHistory,Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -48,7 +48,7 @@ const tileData = [
   },
   {
     img: business,
-    title: "Business Events",
+    title: "Business-Events",
     author: "author",
   },
   {
@@ -79,10 +79,11 @@ export default function Random() {
               
             >
               <img className="image"  src={tile.img} alt={tile.title} />
-              <div class="overlay" onClick={()=>history.push(`/${tile.title}`)}  >
+              <div class="overlay" onClick={()=>history.push({pathname:'/event',search:`?type=${tile.title}`})}  >
+              {/* <div className="overlay"> */}
                 <div class="text">{tile.title}</div>
               </div>
-              {/* <Link to="/"> */}
+              {/* <Link to={`/event/${tile.title}`}> */}
               <GridListTileBar
                 title={tile.title}
                 titlePosition="top"
