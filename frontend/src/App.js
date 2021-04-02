@@ -10,13 +10,10 @@ import {
 } from "react-router-dom";
 import HomeScreen from "./screens/HomeScreen";
 import EventScreen from "./screens/EventScreen";
-<<<<<<< HEAD
 import MainEvent from "./components/main-event/MainEvent";
-=======
 import SignIn from "./screens/Signin";
 import SignUp from "./screens/Signup";
 import SignUpOrg from "./screens/SignUpOrg";
->>>>>>> ameya
 function App() {
   return (
     <div className="app">
@@ -37,7 +34,7 @@ function App() {
           <Route exact path="/SignUpOrg" component={SignUpOrg} />
 
           <Route path="/:title" component={(Navbar, EventScreen, Footer)} />
-          <Route path='/main-event' component={Navbar,MainEvent,Footer}/>
+          <Route path="/main-event" component={(Navbar, MainEvent, Footer)} />
         </Switch>
       </Router>
     </div>
