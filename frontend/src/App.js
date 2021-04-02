@@ -10,25 +10,36 @@ import {
 } from "react-router-dom";
 import HomeScreen from "./screens/HomeScreen";
 import EventScreen from "./screens/EventScreen";
+<<<<<<< HEAD
 import MainEvent from "./components/main-event/MainEvent";
+=======
+import SignIn from "./screens/Signin";
+import SignUp from "./screens/Signup";
+import SignUpOrg from "./screens/SignUpOrg";
+>>>>>>> ameya
 function App() {
   return (
     <div className="app">
-      <Navbar />
       <Router>
         <Switch>
           <Route exact path="/">
+            <Navbar />
             <HomeScreen />
+            <Footer />
           </Route>
-          <Route path='/all'>
-            <SpacingGrid/>
+          <Route path="/all">
+            <Navbar />
+            <SpacingGrid />
+            <Footer />
           </Route>
-          <Route path='/event' component={EventScreen}/>
-          <Route path='/main-event' component={MainEvent}/>
+          <Route exact path="/SignIn" component={SignIn} />
+          <Route exact path="/SignUp" component={SignUp} />
+          <Route exact path="/SignUpOrg" component={SignUpOrg} />
+
+          <Route path="/:title" component={(Navbar, EventScreen, Footer)} />
+          <Route path='/main-event' component={Navbar,MainEvent,Footer}/>
         </Switch>
       </Router>
-      
-      <Footer />
     </div>
   );
 }
