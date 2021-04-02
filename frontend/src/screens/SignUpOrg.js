@@ -11,7 +11,7 @@ import Grid from "@material-ui/core/Grid";
 
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
-import orgbg from "./orgbg.jpg";
+// import orgbg from "./orgbg.jpg";
 
 function Copyright() {
   return (
@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
     height: "100vh",
   },
   image: {
-    backgroundImage: `url(${orgbg})`,
+    backgroundImage: `url(https://cdn.dribbble.com/users/992274/screenshots/15336814/media/c8ae8e3b3040f03d7e65676b7abe185c.jpg?compress=1&resize=1000x750)`,
     backgroundRepeat: "no-repeat",
     backgroundColor:
       theme.palette.type === "light"
@@ -84,7 +84,7 @@ export default function SignUpOrg() {
   return (
     <Grid container component="main" className={classes.root}>
       <CssBaseline />
-      <Grid item xs={false} sm={4} md={6} className={classes.image} />
+      <Grid item xs={false} sm={4} md={7} className={classes.image} />
       <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
         <div className={classes.paper}>
           <Typography variant="h4" gutterBottom className={classes.header}>

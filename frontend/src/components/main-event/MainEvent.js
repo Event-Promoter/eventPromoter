@@ -23,7 +23,7 @@ const MainEvent = () => {
             </header>
             <div className="side">
                 <div className="company">
-                    <img className="border-image" src={img}></img>
+                    <img className="border-image"  src={img} alt="organizer logo" />
                 </div>
                 <div className="desc">
 

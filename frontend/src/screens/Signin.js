@@ -31,10 +31,12 @@ function Copyright() {
 
 const useStyles = makeStyles((theme) => ({
   root: {
+    paddingTop:'1.5%',
+    paddingBottom:'1.5%',
     height: "100vh",
   },
   image: {
-    backgroundImage: "url(https://source.unsplash.com/random)",
+    backgroundImage: "url(https://cdn.dribbble.com/users/89889/screenshots/10006531/media/7d15ff7af53b99e3f2fbdc65827f1ad5.jpg?compress=1&resize=1000x750)",
     backgroundRepeat: "no-repeat",
     backgroundColor:
       theme.palette.type === "light"

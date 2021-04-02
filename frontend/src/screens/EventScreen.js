@@ -1,12 +1,12 @@
 import React from 'react'
-import { useParams } from 'react-router-dom'
+// import { useParams } from 'react-router-dom'
 
 function EventScreen() {
     const urlParams = new URLSearchParams(window.location.search);
     const type=urlParams.get('type')
     return (
         <div>
-            {type}
+            <h1>Hello World</h1>
         </div>
     )
 }
