@@ -13,7 +13,7 @@ import Avatar from "@material-ui/core/Avatar";
 import img from "./bram-naus-n8Qb1ZAkK88-unsplash.jpg";
 import Button from "@material-ui/core/Button";
 import ShareIcon from "@material-ui/icons/Share";
-import IconButton from "@material-ui/core/IconButton";
+// import IconButton from "@material-ui/core/IconButton";
 
 const useStyles = makeStyles({
   root: {
@@ -45,7 +45,11 @@ const useStyles = makeStyles({
     backgroundColor: "#eeeeee",
     paddingTop: "10px",
   },
-  share: {},
+  share: {
+    top:'0',
+    padding:'4px'
+
+  },
 });
 const styles = {
   overlay: {
@@ -82,14 +86,14 @@ function EventCard() {
               textDecoration: "none",
               color: "white",
               fontWeight: "500",
-              margin: "10px",
+              padding: "8px",
             }}
           >
             PICT ACM
           </a>
-          <IconButton aria-label="share" className={useStyles().share}>
-            <ShareIcon />
-          </IconButton>
+          {/* <IconButton aria-label="share" > */}
+            <ShareIcon className={useStyles().share} style={{color:'white'}}/>
+          {/* </IconButton> */}
         </div>
         <CardContent>
           <Typography

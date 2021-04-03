@@ -15,6 +15,7 @@ import SignIn from "./screens/Signin";
 import SignUp from "./screens/Signup";
 import SignUpOrg from "./screens/SignUpOrg";
 import { Typography } from "@material-ui/core";
+import SubEvent from "./components/sub-event/SubEvent";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
           <Route exact path="/">
             <Navbar />
             <HomeScreen />
+            <SubEvent/>
             <Footer />
           </Route>
           <Route path="/all">
@@ -46,6 +48,7 @@ function App() {
           <Route exact path="/main-event">
             <Navbar />
             <MainEvent />
+            
             <Footer />
           </Route>
           <Route path="/events"  >
