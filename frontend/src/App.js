@@ -48,7 +48,7 @@ function App() {
             <MainEvent />
             <Footer />
           </Route>
-          <Route path="/events/:type"  >
+          <Route path="/events"  >
             <Navbar/>
             <EventScreen/>
             <Footer/>
