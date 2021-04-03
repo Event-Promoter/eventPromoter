@@ -2,7 +2,7 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import EventCard from "../EventCard/EventCard";
-import { Typography } from "@material-ui/core";
+// import { Typography } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -27,9 +27,7 @@ export default function SpacingGrid() {
 
   return (
     <div>
-      <Typography variant="h5" gutterBottom className={classes.header}>
-        All events
-      </Typography>
+      
       <Grid container className={classes.root} spacing={4}>
         <Grid item xs={12}>
           {[10, 11, 12, 13].map((val) => (

@@ -14,6 +14,8 @@ import MainEvent from "./components/main-event/MainEvent";
 import SignIn from "./screens/Signin";
 import SignUp from "./screens/Signup";
 import SignUpOrg from "./screens/SignUpOrg";
+import { Typography } from "@material-ui/core";
+
 function App() {
   return (
     <div className="app">
@@ -30,6 +32,13 @@ function App() {
           </Route>
           <Route path="/all">
             <Navbar />
+            <Typography variant="h5" gutterBottom style={{
+              display: "flex",
+              justifyContent: "center",
+              marginTop: "3%",
+              }}>
+                All events
+              </Typography>
             <SpacingGrid />
             <Footer />
           </Route>
@@ -39,7 +48,11 @@ function App() {
             <MainEvent />
             <Footer />
           </Route>
-          <Route path="/:title" component={(Navbar, EventScreen, Footer)} />
+          <Route path="/events/:type"  >
+            <Navbar/>
+            <EventScreen/>
+            <Footer/>
+          </Route>
         </Switch>
       </Router>
     </div>

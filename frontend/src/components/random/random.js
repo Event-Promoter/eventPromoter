@@ -79,7 +79,7 @@ export default function Random() {
               
             >
               <img className="image"  src={tile.img} alt={tile.title} />
-              <div class="overlay" onClick={()=>history.push({pathname:'/event',search:`?type=${tile.title}`})}  >
+              <div class="overlay" onClick={()=>history.push(`/events/${(tile.title)}`)}  >
               {/* <div className="overlay"> */}
                 <div class="text">{tile.title}</div>
               </div>
