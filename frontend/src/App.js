@@ -16,6 +16,7 @@ import SignUp from "./screens/Signup";
 import SignUpOrg from "./screens/SignUpOrg";
 import { Typography } from "@material-ui/core";
 import SubEvent from "./components/sub-event/SubEvent";
+import CreateEvent from "./screens/CreateEvent";
 
 function App() {
   return (
@@ -29,18 +30,22 @@ function App() {
           <Route exact path="/">
             <Navbar />
             <HomeScreen />
-            <SubEvent/>
+            <SubEvent />
             <Footer />
           </Route>
           <Route path="/all">
             <Navbar />
-            <Typography variant="h5" gutterBottom style={{
-              display: "flex",
-              justifyContent: "center",
-              marginTop: "3%",
-              }}>
-                All events
-              </Typography>
+            <Typography
+              variant="h5"
+              gutterBottom
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                marginTop: "3%",
+              }}
+            >
+              All events
+            </Typography>
             <SpacingGrid />
             <Footer />
           </Route>
@@ -48,13 +53,18 @@ function App() {
           <Route exact path="/main-event">
             <Navbar />
             <MainEvent />
-            
+
             <Footer />
           </Route>
-          <Route path="/events"  >
-            <Navbar/>
-            <EventScreen/>
-            <Footer/>
+          <Route path="/events">
+            <Navbar />
+            <EventScreen />
+            <Footer />
+          </Route>
+          <Route path="/createEvent">
+            <Navbar />
+            <CreateEvent />
+            <Footer />
           </Route>
         </Switch>
       </Router>
