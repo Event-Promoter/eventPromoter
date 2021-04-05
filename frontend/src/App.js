@@ -11,24 +11,63 @@ import {
 import HomeScreen from "./screens/HomeScreen";
 import EventScreen from "./screens/EventScreen";
 import MainEvent from "./components/main-event/MainEvent";
+import SignIn from "./screens/Signin";
+import SignUp from "./screens/Signup";
+import SignUpOrg from "./screens/SignUpOrg";
+import { Typography } from "@material-ui/core";
+import SubEvent from "./components/sub-event/SubEvent";
+import CreateEvent from "./screens/CreateEvent";
+
 function App() {
   return (
     <div className="app">
-      <Navbar />
       <Router>
         <Switch>
+          <Route exact path="/SignIn" component={SignIn} />
+          <Route exact path="/SignUp" component={SignUp} />
+          <Route exact path="/SignUpOrg" component={SignUpOrg} />
+
           <Route exact path="/">
+            <Navbar />
             <HomeScreen />
+            <SubEvent />
+            <Footer />
           </Route>
-          <Route path='/all'>
-            <SpacingGrid/>
+          <Route path="/all">
+            <Navbar />
+            <Typography
+              variant="h5"
+              gutterBottom
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                marginTop: "3%",
+              }}
+            >
+              All events
+            </Typography>
+            <SpacingGrid />
+            <Footer />
           </Route>
-          <Route path='/event' component={EventScreen}/>
-          <Route path='/main-event' component={MainEvent}/>
+
+          <Route exact path="/main-event">
+            <Navbar />
+            <MainEvent />
+
+            <Footer />
+          </Route>
+          <Route path="/events">
+            <Navbar />
+            <EventScreen />
+            <Footer />
+          </Route>
+          <Route path="/createEvent">
+            <Navbar />
+            <CreateEvent />
+            <Footer />
+          </Route>
         </Switch>
       </Router>
-      
-      <Footer />
     </div>
   );
 }

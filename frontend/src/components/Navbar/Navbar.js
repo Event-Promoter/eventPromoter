@@ -7,6 +7,7 @@ import Close from "@material-ui/icons/Close";
 import MenuIcon from "@material-ui/icons/Menu";
 import { Button } from "@material-ui/core";
 
+
 function Navbar() {
   const [show, handleShow] = useState(false);
   useEffect(() => {
@@ -31,7 +32,7 @@ function Navbar() {
       <div className="navbar__right">
         <p>Home</p>
         <p>About Us</p>
-        <a href="/">Sign In/up</a>
+        <a href="/SignUp">Sign In/up</a>
       </div>
       <div className="menu">
         <div className="mobile-menu" onClick={handleClick}>
@@ -42,14 +43,16 @@ function Navbar() {
           )}
         </div>
         <div className={` ${!click && "menu__option"}`}>
-          <p>Home</p>
+          <a href="/">
+            <p>Home</p>
+          </a>
           <p>About Us</p>
           <Button
             style={{ textTransform: "none", marginLeft: "5px" }}
             variant="contained"
-            color="primary"
+            href='/SignUp'
           >
-            Sign In/Up
+            Sign In/up
           </Button>
         </div>
       </div>
