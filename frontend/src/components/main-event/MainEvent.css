@@ -35,7 +35,7 @@
     box-sizing: border-box;
     margin-left: 25%;
     margin-right: 25%;
-    border-bottom: 0.5px solid #e5e7e8;
+    /* border-bottom: 0.5px solid #e5e7e8; */
     height: 25%;
     /* box-shadow: 0.2px 0.5px #e5e7e8; */
 
@@ -46,7 +46,6 @@
     box-sizing: border-box;
     margin-left: 25%;
     margin-right: 25%;
-    border-bottom: 0.5px solid #e5e7e8;
     height: 35%;
     /* box-shadow: 0.2px 0.5px #e5e7e8; */
 }
@@ -75,4 +74,21 @@
 .button >button:hover
 {
     background-color: #199ef7;
+}
+
+.text-work
+{
+    margin-top: 1%;
+    color: rgb(92, 85, 85);
+    border-bottom: 0.5px solid #e5e7e8;
+    text-align: center;
+
+}
+
+.text-work2
+{
+    margin-top: 1%;
+    color: rgb(92, 85, 85);
+    border-bottom: 0.5px solid #e5e7e8;
+    text-align: center;
 }
