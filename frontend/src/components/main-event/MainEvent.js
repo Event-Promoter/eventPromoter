@@ -3,6 +3,8 @@ import './MainEvent.css'
 import bg from "./bg1.jpg";
 import img from "./1.png"
 import { Box, Button, Container, CssBaseline, Grid, Paper, Typography } from '@material-ui/core';
+import './Main.css'
+
 
 import { makeStyles } from '@material-ui/core/styles';
 
