@@ -80,13 +80,20 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SignUpOrg() {
   const [emailError, setEmailError] = useState("");
+  const [password, setPassword] = useState('')
+  const [confirmPassword, setConfirmPassword] = useState('')
+  const [message, setMessage] = useState('')
+  const submitHandler = (e) => {
+    e.preventDefault()
 
+    if (password !== confirmPassword) {
+        setMessage('Passwords do not match')
+    } 
+  }
   const validateEmail = (e) => {
     var email = e.target.value;
 
-    if (validator.isEmail(email)) {
-      setEmailError("Valid Email :)");
-    } else {
+    if (!validator.isEmail(email)) {
       setEmailError("Enter valid Email!");
     }
   };
@@ -114,7 +121,7 @@ export default function SignUpOrg() {
           <form
             className={classes.form}
             noValidate
-            onSubmit={(e) => e.preventDefault()}
+            onSubmit={submitHandler}
           >
             <Grid container spacing={2}>
               <Grid item xs={12}>
@@ -165,6 +172,8 @@ export default function SignUpOrg() {
                   label="Password"
                   type="password"
                   id="password"
+                  value={password}
+                  onChange={(e)=>setPassword(e.target.value)}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -176,6 +185,8 @@ export default function SignUpOrg() {
                   label="Confirm Password"
                   type="password"
                   id="password2"
+                  value={confirmPassword}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
                 />
               </Grid>
             </Grid>
@@ -200,12 +211,14 @@ export default function SignUpOrg() {
                   Already have an account? Sign in
                 </Link>
               </Grid>
+              <span>{message}</span>
             </Grid>
           </form>
         </div>
         <Box mt={5}>
           <Copyright />
         </Box>
+        
       </Grid>
     </Grid>
   );

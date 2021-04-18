@@ -63,12 +63,20 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SignUp() {
   const [emailError, setEmailError] = useState("");
+  const [password, setPassword] = useState('')
+  const [confirmPassword, setConfirmPassword] = useState('')
+  const [message, setMessage] = useState('')
+  const submitHandler = (e) => {
+    e.preventDefault()
+
+    if (password !== confirmPassword) {
+        setMessage('Passwords do not match')
+    } 
+  }
   const validateEmail = (e) => {
     var email = e.target.value;
 
-    if (validator.isEmail(email)) {
-      setEmailError("Valid Email :)");
-    } else {
+    if (!validator.isEmail(email)) {
       setEmailError("Enter valid Email!");
     }
   };
@@ -95,7 +103,7 @@ export default function SignUp() {
         <Typography component="h1" variant="h5">
           Sign up
         </Typography>
-        <form className={classes.form} noValidate>
+        <form onSubmit={submitHandler} className={classes.form} noValidate>
           <Grid container spacing={2}>
             <Grid item xs={12} sm={6}>
               <TextField
@@ -142,6 +150,8 @@ export default function SignUp() {
                 label="Password"
                 type="password"
                 id="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
               />
             </Grid>
             <Grid item xs={12}>
@@ -153,8 +163,11 @@ export default function SignUp() {
                 label="Confirm Password"
                 type="password"
                 id="password2"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
               />
             </Grid>
+            <span>{message}</span>
           </Grid>
           <Button
             type="submit"
