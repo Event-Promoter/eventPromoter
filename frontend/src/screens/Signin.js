@@ -1,5 +1,5 @@
-import React from "react";
-
+import React, { useState } from "react";
+import validator from "validator";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import TextField from "@material-ui/core/TextField";
@@ -31,12 +31,13 @@ function Copyright() {
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    paddingTop:'1.5%',
-    paddingBottom:'1.5%',
+    paddingTop: "1.5%",
+    paddingBottom: "1.5%",
     height: "100vh",
   },
   image: {
-    backgroundImage: "url(https://cdn.dribbble.com/users/89889/screenshots/10006531/media/7d15ff7af53b99e3f2fbdc65827f1ad5.jpg?compress=1&resize=1000x750)",
+    backgroundImage:
+      "url(https://cdn.dribbble.com/users/89889/screenshots/10006531/media/7d15ff7af53b99e3f2fbdc65827f1ad5.jpg?compress=1&resize=1000x750)",
     backgroundRepeat: "no-repeat",
     backgroundColor:
       theme.palette.type === "light"
@@ -85,6 +86,17 @@ const useStyles = makeStyles((theme) => ({
 export default function SignIn() {
   const classes = useStyles();
   const [value, setValue] = React.useState("User");
+  const [emailError, setEmailError] = useState("");
+
+  const validateEmail = (e) => {
+    var email = e.target.value;
+
+    if (validator.isEmail(email)) {
+      setEmailError("Valid Email :)");
+    } else {
+      setEmailError("Enter valid Email!");
+    }
+  };
   const handleChange = (event) => {
     setValue(event.target.value);
   };
@@ -124,7 +136,9 @@ export default function SignIn() {
               name="email"
               autoComplete="email"
               autoFocus
+              onChange={(e) => validateEmail(e)}
             />
+            <span>{emailError}</span>
             <TextField
               variant="outlined"
               margin="normal"

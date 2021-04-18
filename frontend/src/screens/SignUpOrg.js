@@ -1,5 +1,4 @@
-import React from "react";
-
+import React, { useState, useRef } from "react";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import TextField from "@material-ui/core/TextField";
@@ -12,6 +11,7 @@ import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 // import orgbg from "./orgbg.jpg";
+import validator from "validator";
 
 function Copyright() {
   return (
@@ -79,6 +79,18 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function SignUpOrg() {
+  const [emailError, setEmailError] = useState("");
+
+  const validateEmail = (e) => {
+    var email = e.target.value;
+
+    if (validator.isEmail(email)) {
+      setEmailError("Valid Email :)");
+    } else {
+      setEmailError("Enter valid Email!");
+    }
+  };
+
   const classes = useStyles();
 
   return (
@@ -99,7 +111,11 @@ export default function SignUpOrg() {
             Sign Up for Organizations
           </Typography>
 
-          <form className={classes.form} noValidate>
+          <form
+            className={classes.form}
+            noValidate
+            onSubmit={(e) => e.preventDefault()}
+          >
             <Grid container spacing={2}>
               <Grid item xs={12}>
                 <TextField
@@ -136,7 +152,9 @@ export default function SignUpOrg() {
                   label="Email Address"
                   name="email"
                   autoComplete="email"
+                  onChange={(e) => validateEmail(e)}
                 />
+                <span>{emailError}</span>
               </Grid>
               <Grid item xs={12}>
                 <TextField
