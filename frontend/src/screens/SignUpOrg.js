@@ -1,5 +1,4 @@
-import React from "react";
-
+import React, { useState, useRef } from "react";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import TextField from "@material-ui/core/TextField";
@@ -12,6 +11,7 @@ import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 // import orgbg from "./orgbg.jpg";
+import validator from "validator";
 
 function Copyright() {
   return (
@@ -79,6 +79,25 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function SignUpOrg() {
+  const [emailError, setEmailError] = useState("");
+  const [password, setPassword] = useState('')
+  const [confirmPassword, setConfirmPassword] = useState('')
+  const [message, setMessage] = useState('')
+  const submitHandler = (e) => {
+    e.preventDefault()
+
+    if (password !== confirmPassword) {
+        setMessage('Passwords do not match')
+    } 
+  }
+  const validateEmail = (e) => {
+    var email = e.target.value;
+
+    if (!validator.isEmail(email)) {
+      setEmailError("Enter valid Email!");
+    }
+  };
+
   const classes = useStyles();
 
   return (
@@ -99,7 +118,11 @@ export default function SignUpOrg() {
             Sign Up for Organizations
           </Typography>
 
-          <form className={classes.form} noValidate>
+          <form
+            className={classes.form}
+            noValidate
+            onSubmit={submitHandler}
+          >
             <Grid container spacing={2}>
               <Grid item xs={12}>
                 <TextField
@@ -136,7 +159,9 @@ export default function SignUpOrg() {
                   label="Email Address"
                   name="email"
                   autoComplete="email"
+                  onChange={(e) => validateEmail(e)}
                 />
+                <span>{emailError}</span>
               </Grid>
               <Grid item xs={12}>
                 <TextField
@@ -147,6 +172,8 @@ export default function SignUpOrg() {
                   label="Password"
                   type="password"
                   id="password"
+                  value={password}
+                  onChange={(e)=>setPassword(e.target.value)}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -158,6 +185,8 @@ export default function SignUpOrg() {
                   label="Confirm Password"
                   type="password"
                   id="password2"
+                  value={confirmPassword}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
                 />
               </Grid>
             </Grid>
@@ -182,12 +211,14 @@ export default function SignUpOrg() {
                   Already have an account? Sign in
                 </Link>
               </Grid>
+              <span>{message}</span>
             </Grid>
           </form>
         </div>
         <Box mt={5}>
           <Copyright />
         </Box>
+        
       </Grid>
     </Grid>
   );
