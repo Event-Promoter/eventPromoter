@@ -10,6 +10,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import GoogleButton from "react-google-button";
 import validator from "validator";
+import Alert from "@material-ui/lab/Alert";
 
 function Copyright() {
   return (
@@ -63,21 +64,23 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SignUp() {
   const [emailError, setEmailError] = useState("");
-  const [password, setPassword] = useState('')
-  const [confirmPassword, setConfirmPassword] = useState('')
-  const [message, setMessage] = useState('')
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [message, setMessage] = useState("");
   const submitHandler = (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
     if (password !== confirmPassword) {
-        setMessage('Passwords do not match')
-    } 
-  }
+      setMessage("Passwords do not match !");
+    } else setMessage("");
+  };
   const validateEmail = (e) => {
     var email = e.target.value;
 
     if (!validator.isEmail(email)) {
       setEmailError("Enter valid Email!");
+    } else {
+      setEmailError("");
     }
   };
 
@@ -139,7 +142,12 @@ export default function SignUp() {
                 autoComplete="email"
                 onChange={(e) => validateEmail(e)}
               />
-              <span>{emailError}</span>
+              {/* <span style={{ color: "#FF0000" }}>{emailError}</span> */}
+              {emailError && (
+                <Alert variant="filled" severity="error">
+                  {emailError}
+                </Alert>
+              )}
             </Grid>
             <Grid item xs={12}>
               <TextField
@@ -166,8 +174,14 @@ export default function SignUp() {
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
               />
+              {/* <span style={{ color: "#FF0000" }}>{message}</span>
+               */}
+              {message && (
+                <Alert variant="filled" severity="warning">
+                  {message}
+                </Alert>
+              )}
             </Grid>
-            <span>{message}</span>
           </Grid>
           <Button
             type="submit"

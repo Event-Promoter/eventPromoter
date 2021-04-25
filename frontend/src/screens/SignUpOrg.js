@@ -12,6 +12,7 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 // import orgbg from "./orgbg.jpg";
 import validator from "validator";
+import Alert from "@material-ui/lab/Alert";
 
 function Copyright() {
   return (
@@ -80,21 +81,23 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SignUpOrg() {
   const [emailError, setEmailError] = useState("");
-  const [password, setPassword] = useState('')
-  const [confirmPassword, setConfirmPassword] = useState('')
-  const [message, setMessage] = useState('')
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [message, setMessage] = useState("");
   const submitHandler = (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
     if (password !== confirmPassword) {
-        setMessage('Passwords do not match')
-    } 
-  }
+      setMessage("Passwords do not match !");
+    } else setMessage("");
+  };
   const validateEmail = (e) => {
     var email = e.target.value;
 
     if (!validator.isEmail(email)) {
       setEmailError("Enter valid Email!");
+    } else {
+      setEmailError("");
     }
   };
 
@@ -118,11 +121,7 @@ export default function SignUpOrg() {
             Sign Up for Organizations
           </Typography>
 
-          <form
-            className={classes.form}
-            noValidate
-            onSubmit={submitHandler}
-          >
+          <form className={classes.form} noValidate onSubmit={submitHandler}>
             <Grid container spacing={2}>
               <Grid item xs={12}>
                 <TextField
@@ -161,7 +160,12 @@ export default function SignUpOrg() {
                   autoComplete="email"
                   onChange={(e) => validateEmail(e)}
                 />
-                <span>{emailError}</span>
+                {/* <span style={{ color: "#FF0000" }}>{emailError}</span> */}
+                {emailError && (
+                  <Alert variant="filled" severity="error">
+                    {emailError}
+                  </Alert>
+                )}
               </Grid>
               <Grid item xs={12}>
                 <TextField
@@ -173,7 +177,7 @@ export default function SignUpOrg() {
                   type="password"
                   id="password"
                   value={password}
-                  onChange={(e)=>setPassword(e.target.value)}
+                  onChange={(e) => setPassword(e.target.value)}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -188,6 +192,12 @@ export default function SignUpOrg() {
                   value={confirmPassword}
                   onChange={(e) => setConfirmPassword(e.target.value)}
                 />
+                {/* <span style={{ color: "#FF0000" }}>{message}</span> */}
+                {message && (
+                  <Alert variant="filled" severity="warning">
+                    {message}
+                  </Alert>
+                )}
               </Grid>
             </Grid>
             <Button
@@ -211,14 +221,12 @@ export default function SignUpOrg() {
                   Already have an account? Sign in
                 </Link>
               </Grid>
-              <span>{message}</span>
             </Grid>
           </form>
         </div>
         <Box mt={5}>
           <Copyright />
         </Box>
-        
       </Grid>
     </Grid>
   );

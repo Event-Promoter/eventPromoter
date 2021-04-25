@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useHistory, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
@@ -14,6 +14,8 @@ import img from "./bram-naus-n8Qb1ZAkK88-unsplash.jpg";
 import Button from "@material-ui/core/Button";
 import ShareIcon from "@material-ui/icons/Share";
 // import IconButton from "@material-ui/core/IconButton";
+
+import SubEvent from "../sub-event/SubEvent";
 
 const useStyles = makeStyles({
   root: {
@@ -46,9 +48,8 @@ const useStyles = makeStyles({
     paddingTop: "10px",
   },
   share: {
-    top:'0',
-    padding:'4px'
-
+    top: "0",
+    padding: "4px",
   },
 });
 const styles = {
@@ -65,78 +66,86 @@ const styles = {
   },
 };
 function EventCard() {
+  const [open, setOpen] = useState(false);
   return (
-    <Card className={useStyles().root}>
-      <CardActionArea>
-        {/* <CardHeader
+    <>
+      <Card className={useStyles().root}>
+        <CardActionArea>
+          {/* <CardHeader
                     className={useStyles().header}
                     avatar={
                     
                 }
                     title="PICT ACM"
                 /> */}
-        <CardMedia className={useStyles().media} image={img} title="bugoff" />
-        <div style={styles.overlay}>
-          <Avatar aria-label="recipe" className={useStyles().avatar}>
-            P
-          </Avatar>
-          <a
-            href="https://pict.acm.org/"
+          <CardMedia className={useStyles().media} image={img} title="bugoff" />
+          <div style={styles.overlay}>
+            <Avatar aria-label="recipe" className={useStyles().avatar}>
+              P
+            </Avatar>
+            <a
+              href="https://pict.acm.org/"
+              style={{
+                textDecoration: "none",
+                color: "white",
+                fontWeight: "500",
+                padding: "8px",
+              }}
+            >
+              PICT ACM
+            </a>
+            {/* <IconButton aria-label="share" > */}
+            <ShareIcon
+              className={useStyles().share}
+              style={{ color: "white" }}
+            />
+            {/* </IconButton> */}
+          </div>
+          <CardContent>
+            <Typography
+              gutterBottom
+              variant="sronly"
+              component="h3"
+              align="center"
+              color="secondary"
+            >
+              Competitive
+            </Typography>
+            <Typography gutterBottom variant="h6" component="h3" align="center">
+              Bug Off
+            </Typography>
+            <Typography
+              gutterBottom
+              variant="h6"
+              component="h6"
+              align="center"
+              style={{
+                marginBottom: "0px",
+                paddingBottom: "0px",
+              }}
+            >
+              April 11 2021,4:00 pm
+            </Typography>
+          </CardContent>
+        </CardActionArea>
+        <CardActions className={useStyles().action}>
+          <Button
             style={{
-              textDecoration: "none",
-              color: "white",
-              fontWeight: "500",
-              padding: "8px",
+              textTransform: "none",
+              marginLeft: "auto",
+              marginRight: "auto",
             }}
+            variant="contained"
+            color="primary"
+            size="medium"
+            onClick={() => setOpen((o) => !o)}
           >
-            PICT ACM
-          </a>
-          {/* <IconButton aria-label="share" > */}
-            <ShareIcon className={useStyles().share} style={{color:'white'}}/>
-          {/* </IconButton> */}
-        </div>
-        <CardContent>
-          <Typography
-            gutterBottom
-            variant="sronly"
-            component="h3"
-            align="center"
-            color="secondary"
-          >
-            Competitive
-          </Typography>
-          <Typography gutterBottom variant="h6" component="h3" align="center">
-            Bug Off
-          </Typography>
-          <Typography
-            gutterBottom
-            variant="h6"
-            component="h6"
-            align="center"
-            style={{
-              marginBottom: "0px",
-              paddingBottom: "0px",
-            }}
-          >
-            April 11 2021,4:00 pm
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-      <CardActions className={useStyles().action}>
-        <Button
-          style={{
-            textTransform: "none",
-            marginLeft: "auto",
-            marginRight: "auto",
-          }}
-          variant="contained"
-          color="primary"
-          size="medium"
-        >
-          Register
-        </Button>
-      </CardActions>
-    </Card>
+            View
+          </Button>
+        </CardActions>
+      </Card>
+      {open && <SubEvent open={open} setOpen={setOpen} />}
+    </>
   );
 }
 

@@ -15,6 +15,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import GoogleButton from "react-google-button";
 import Radio from "@material-ui/core/Radio";
 import RadioGroup from "@material-ui/core/RadioGroup";
+import Alert from "@material-ui/lab/Alert";
 
 function Copyright() {
   return (
@@ -92,7 +93,7 @@ export default function SignIn() {
     var email = e.target.value;
 
     if (validator.isEmail(email)) {
-      setEmailError("Valid Email :)");
+      setEmailError("");
     } else {
       setEmailError("Enter valid Email!");
     }
@@ -138,7 +139,13 @@ export default function SignIn() {
               autoFocus
               onChange={(e) => validateEmail(e)}
             />
-            <span>{emailError}</span>
+            {/* <span style={{ color: "#FF0000" }}>{emailError}</span>
+             */}
+            {emailError && (
+              <Alert variant="filled" severity="error">
+                {emailError}
+              </Alert>
+            )}
             <TextField
               variant="outlined"
               margin="normal"
